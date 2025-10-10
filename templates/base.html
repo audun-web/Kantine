@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='img/style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Hjem</a></li>
+                <li><a href="{{ url_for('meny') }}">Meny</a></li>
+                <li><a href="{{ url_for('varer') }}">Varer</a></li>
+                <li><a href="{{ url_for('kontakt') }}">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+    {% block content %}{% endblock %}
+
+    <footer>
+        <p>Copyright 2025</p>
+    </footer>
+</body>
+</html>
