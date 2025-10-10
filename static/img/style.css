@@ -1,0 +1,55 @@
+body {
+    background-color: gainsboro;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+}
+
+nav {
+    display: flex;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+}
+
+nav ul li a:hover {
+    color: #333;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+}
+
+
+footer p {
+    color: #fff;
+}
+
+
+footer p:hover {
+    color: #333;
+}
+
+
+.title {
+    color: orange;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
