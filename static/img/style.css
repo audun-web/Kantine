@@ -1,43 +1,49 @@
+/* === GRUNNLEGGENDE SIDESTRUKTUR === */
+/* Styrer hele sidens layout og utseende */
 body {
-    background-color: gainsboro;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
+    background-color: gainsboro; /* Setter en lys grå bakgrunnsfarge */
+    display: flex; /* Aktiverer Flexbox for å kunne styre layouten */
+    flex-direction: column; /* Plasserer elementer (header, main, footer) under hverandre */
+    min-height: 100vh; /* Sørger for at body alltid er minst like høy som skjermen */
+    margin: 0; /* Fjerner standard marg fra nettleseren */
 }
 
+/* === HEADER (TOPPBANNER) === */
 header {
-    background-color: #2c3e50;
-    color: #fff;
-    margin: 10px;
-    border-radius: 15px;
+    background-color: #2c3e50; /* Mørkeblå bakgrunn */
+    color: #fff; /* Hvit tekstfarge */
+    margin: 10px; /* Luft rundt banneret */
+    border-radius: 15px; /* Avrundede hjørner */
 }
 
+/* === NAVIGASJONSMENY === */
 nav {
-    display: flex;
+    display: flex; /* Brukes for å justere innholdet i nav-elementet om nødvendig */
 }
 
 nav ul {
-    display: flex;
-    list-style: none;
+    display: flex; /* Gjør at menypunktene legger seg på en horisontal linje */
+    list-style: none; /* Fjerner prikkene foran listepunktene */
 }
 
 nav ul li {
-    margin-right: 10px;
+    margin-right: 10px; /* Lager litt avstand mellom hvert menypunkt */
 }
 
 nav ul li a {
-    color: #fff;
-    text-decoration: none;
+    color: #fff; /* Hvit tekstfarge på lenkene */
+    text-decoration: none; /* Fjerner understreking på lenkene */
     font-family: Arial, sans-serif;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    font-weight: bold; /* Fet tekst */
+    transition: color 0.3s ease; /* Gir en myk overgang når fargen endres */
 }
 
+/* Endrer farge når musepekeren er over et menypunkt */
 nav ul li a:hover {
-    color: #f39c12;
+    color: #f39c12; /* Oransje farge ved hover */
 }
 
+/* === FOOTER (BUNNTEKST) === */
 footer {
     background-color: #2c3e50;
     color: #fff;
@@ -49,31 +55,38 @@ footer {
     font-weight: bold;
 }
 
-
+/* Styler avsnittene inni footeren */
 footer p {
     margin: 5px 0; /* Add a little space between the footer paragraphs */
 }
 
+/* Styler lenken (GitHub) i footeren */
 footer a {
     color: #fff; /* Make the link white by default */
     text-decoration: none; /* Remove the underline */
     transition: color 0.3s ease; /* Add a smooth transition for the hover effect */
 }
 
+/* Endrer fargen på lenken ved hover */
 footer a:hover {
     color: #f39c12;
 }
 
-/* Ensure footer sticks to bottom when content is short */
+/* === STICKY FOOTER-LØSNING === */
+/* Disse reglene jobber sammen med 'body' for å holde footeren nederst */
 main {
-    flex: 1 0 auto;
+    flex: 1 0 auto; /* Gjør at hovedinnholdet vokser og tar opp all ledig plass */
 }
 
 footer {
-    margin-top: auto;
+    margin-top: auto; /* Skyver footeren til bunnen av den ledige plassen */
 }
 
 
+/* === GENERELLE STILER === */
+/* Stiler som brukes på flere sider */
+
+/* Styler hovedoverskriftene på sidene (f.eks. "Ukens Meny") */
 .title {
     color: #2c3e50;
     text-align: center;
@@ -122,7 +135,8 @@ footer {
     to   { filter: blur(24px) saturate(120%) hue-rotate(360deg); }
 }
 
-/* Welcome page styles */
+/* === FORSIDE-STILER === */
+/* Hovedboksen med velkomsttekst */
 .welcome-container {
     text-align: center;
     margin: 20px auto;
@@ -137,9 +151,9 @@ footer {
     color: #333;
 }
 
-.cta-button {
+/* Den oransje "Se meny"-knappen */
+.cta-button { /* Justert for å fungere med button-group */
     display: inline-block;
-    margin-top: 20px;
     padding: 12px 24px;
     background-color: #f39c12;
     color: #fff;
@@ -153,7 +167,17 @@ footer {
     background-color: #e67e22;
 }
 
-/* Menu page specific styles */
+/* Gruppe for knapper på forsiden */
+.button-group {
+    display: flex; /* Plasserer knapper side ved side */
+    justify-content: center; /* Sentrerer knappene horisontalt */
+    gap: 20px; /* Avstand mellom knappene */
+    margin-top: 30px; /* Luft over knappegruppen */
+    flex-wrap: wrap; /* Lar knappene bryte linje på små skjermer */
+}
+
+/* === MENYSIDE-STILER === */
+/* Organiserer dagsmenyene i et rutenett (her: én kolonne) */
 .menu-grid {
     display: grid;
     grid-template-columns: 1fr; /* One column by default */
@@ -161,14 +185,32 @@ footer {
     text-align: left;
 }
 
+/* Styler hver enkelt "dag"-boks */
 .menu-day {
+    /* Fjerner padding herfra og flytter den til .menu-day-content */
+    padding: 0; 
     background-color: #f8f9fa;
-    padding: 20px;
     border-radius: 10px;
-    border-left: 5px solid #f39c12;
     transition: background-color 0.3s ease, color 0.3s ease;
+    overflow: hidden; /* Sørger for at bildet holder seg innenfor de avrundede hjørnene */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Gir litt mer dybde */
 }
 
+/* Styler bildene i menyen */
+.menu-day img {
+    width: 100%; /* Bildet fyller hele bredden av kortet */
+    height: 200px; /* Gir alle bildene en fast høyde */
+    object-fit: cover; /* Viktig! Skalerer bildet til å dekke området uten å strekke det. Kan beskjære litt. */
+    display: block; /* Fjerner eventuell ekstra plass under bildet */
+}
+
+/* Legger til luft rundt teksten inni kortet */
+.menu-day-content {
+    padding: 20px;
+    border-top: 4px solid #f39c12; /* Erstatter den venstre stripen med en toppstripe */
+}
+
+/* Styler overskriftene for dagene (Mandag, Tirsdag, etc.) */
 .menu-day h2 {
     margin-top: 0;
     color: #2c3e50;
@@ -181,18 +223,19 @@ footer {
 }
 
 .menu-day:hover h2,
-.menu-day:hover p {
+.menu-day:hover .menu-day-content p {
     color: #fff;
 }
 
-
+/* Styler pris-teksten */
 .price {
     font-weight: bold;
     color: #333;
     margin-top: 10px;
 }
 
-/* Contact page styles */
+/* === KONTAKTSIDE-STILER === */
+/* Lager et fleksibelt rutenett for kontaktkortene */
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -200,6 +243,7 @@ footer {
     text-align: center;
 }
 
+/* Styler hvert enkelt kontaktkort */
 .contact-card {
     background-color: #f8f9fa;
     padding: 20px;
@@ -208,6 +252,7 @@ footer {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Styler rollen (Sjef, Kokk, etc.) */
 .contact-card h3 {
     margin-top: 0;
     color: #f39c12; /* Orange color for the role */
@@ -230,7 +275,8 @@ footer {
 }
 
 
-/* Products page styles */
+/* === VARER-SIDE STILER === */
+/* Lager et rutenett for produktene */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -238,6 +284,7 @@ footer {
     text-align: left;
 }
 
+/* Styler hvert enkelt produktkort */
 .product-item {
     background-color: #f8f9fa;
     padding: 20px;
@@ -246,6 +293,7 @@ footer {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Styler navnet på produktet */
 .product-item h4 {
     margin-top: 0;
     margin-bottom: 5px;
