@@ -4,45 +4,15 @@
 <h1 class="title">Ukens Meny</h1>
 
 <div class="welcome-container menu-grid">
+    {% for item in menu_items %}
     <div class="menu-day">
-        <img src="{{ url_for('static', filename='img/kremet-pasta.webp') }}" alt="Kremet pasta med kylling">
+        <img src="{{ url_for('static', filename=item.image) }}" alt="{{ item.alt_text }}">
         <div class="menu-day-content">
-            <h2>Mandag</h2>
-            <p>Kremet pasta med kylling og soltørkede tomater.</p>
-            <p class="price">Pris: 45,-</p>
+            <h2>{{ item.day }}</h2>
+            <p>{{ item.description }}</p>
+            <p class="price">Pris: {{ item.price }}</p>
         </div>
     </div>
-    <div class="menu-day">
-        <img src="{{ url_for('static', filename='img/pannestekt-laks.webp') }}" alt="Pannestekt laks">
-        <div class="menu-day-content">
-            <h2>Tirsdag</h2>
-            <p>Pannestekt laks servert med ovnsbakte rotgrønnsaker.</p>
-            <p class="price">Pris: 50,-</p>
-        </div>
-    </div>
-    <div class="menu-day">
-        <img src="{{ url_for('static', filename='img/lasagne.jpg') }}" alt="Hjemmelaget lasagne">
-        <div class="menu-day-content">
-            <h2>Onsdag</h2>
-            <p>Hjemmelaget lasagne med frisk salat og hvitløksbrød.</p>
-            <p class="price">Pris: 45,-</p>
-        </div>
-    </div>
-    <div class="menu-day">
-        <img src="{{ url_for('static', filename='img/burger.jpeg') }}" alt="Saftig burger">
-        <div class="menu-day-content">
-            <h2>Torsdag</h2>
-            <p>Burger-torsdag! Saftig burger med cheddar og bacon.</p>
-            <p class="price">Pris: 48,-</p>
-        </div>
-    </div>
-    <div class="menu-day">
-        <img src="{{ url_for('static', filename='img/taco.webp') }}" alt="Taco-buffet">
-        <div class="menu-day-content">
-            <h2>Fredag</h2>
-            <p>Taco-fredag! Buffet med alt du kan ønske deg av tilbehør.</p>
-            <p class="price">Pris: 49,-</p>
-        </div>
-    </div>
+    {% endfor %}
 </div>
 {% endblock %}
