@@ -98,43 +98,6 @@ footer {
     margin-bottom: 20px;
 }
 
-/* -------- Easter Egg: Hover to trigger hue rotation Absolutt ikke lagd av meg :P -------- */
-.easter-egg {
-    position: fixed;
-    right: 16px;
-    bottom: 16px;
-    width: 48px;   /* hotspot size */
-    height: 48px;
-    opacity: 0;    /* invisible but interactive */
-    z-index: 1000;
-}
-/* -------- Easter Egg: Hover to trigger hue rotation Absolutt ikke lagd av meg :P -------- */
-.rainbow-overlay {
-    pointer-events: none; /* don't block clicks */
-    position: fixed;
-    inset: 0;
-    opacity: 0;
-    z-index: 999; /* below hotspot */
-    transition: opacity 0.4s ease;
-    background: conic-gradient(
-        from 0deg,
-        red, orange, yellow, lime, cyan, blue, magenta, red
-    );
-    mix-blend-mode: screen; /* glow-like effect over content */
-    filter: blur(24px) saturate(120%);
-}
-
-/* -------- Easter Egg: Hover to trigger hue rotation Absolutt ikke lagd av meg :P -------- */
-.easter-egg:hover ~ .rainbow-overlay {
-    opacity: 0.35;
-    animation: hue-spin 2.5s linear infinite;
-}
-/* -------- Easter Egg: Hover to trigger hue rotation Absolutt ikke lagd av meg :P -------- */
-@keyframes hue-spin {
-    from { filter: blur(24px) saturate(120%) hue-rotate(0deg); }
-    to   { filter: blur(24px) saturate(120%) hue-rotate(360deg); }
-}
-
 /* === FORSIDE-STILER === */
 /* Hovedboksen med velkomsttekst */
 .welcome-container {
@@ -187,7 +150,7 @@ footer {
 
 /* Styler hver enkelt "dag"-boks */
 .menu-day {
-    /* Fjerner padding herfra og flytter den til .menu-day-content */
+    
     padding: 0; 
     background-color: #f8f9fa;
     border-radius: 10px;
@@ -199,8 +162,8 @@ footer {
 /* Styler bildene i menyen */
 .menu-day img {
     width: 100%; /* Bildet fyller hele bredden av kortet */
-    height: 200px; /* Gir alle bildene en fast høyde */
-    object-fit: cover; /* Viktig! Skalerer bildet til å dekke området uten å strekke det. Kan beskjære litt. */
+    height: auto; /* Høyden justeres automatisk for å bevare proporsjonene */
+    
     display: block; /* Fjerner eventuell ekstra plass under bildet */
 }
 
