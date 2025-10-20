@@ -148,6 +148,12 @@ footer {
     text-align: left;
 }
 
+/* Fjerner standard lenke-styling fra menykortene */
+.menu-day-link {
+    text-decoration: none;
+    color: inherit;
+}
+
 /* Styler hver enkelt "dag"-boks */
 .menu-day {
     
@@ -271,4 +277,24 @@ footer {
 .product-item:hover h4,
 .product-item:hover .price {
     color: #fff;
+}
+
+/* === DETALJSIDE FOR MENY === */
+/* Styler bildet på detaljsiden */
+.detail-image {
+    width: 100%;
+    max-width: 600px; /* Begrenser maksbredden på bildet */
+    height: auto;
+    border-radius: 10px;
+    margin: 20px auto;
+    display: block;
+}
+
+.detail-content {
+    text-align: center;
+}
+
+.allergens {
+    margin-top: 20px;
+    font-style: italic;
 }
