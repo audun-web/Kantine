@@ -5,14 +5,16 @@
 
 <div class="welcome-container menu-grid">
     {% for item in menu_items %}
-    <div class="menu-day">
-        <img src="{{ url_for('static', filename=item.image) }}" alt="{{ item.alt_text }}">
-        <div class="menu-day-content">
-            <h2>{{ item.day }}</h2>
-            <p>{{ item.description }}</p>
-            <p class="price">Pris: {{ item.price }}</p>
+    <a href="{{ url_for('menu_day_detail', day=item.day | lower) }}" class="menu-day-link">
+        <div class="menu-day">
+            <img src="{{ url_for('static', filename=item.image) }}" alt="{{ item.alt_text }}">
+            <div class="menu-day-content">
+                <h2>{{ item.day }}</h2>
+                <p>{{ item.description }}</p>
+                <p class="price">Pris: {{ item.price }}</p>
+            </div>
         </div>
-    </div>
+    </a>
     {% endfor %}
 </div>
 {% endblock %}

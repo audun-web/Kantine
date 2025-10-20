@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="welcome-container">
+    <h1 class="title">{{ item.day }}: {{ item.alt_text }}</h1>
+    
+    <img src="{{ url_for('static', filename=item.image) }}" alt="{{ item.alt_text }}" class="detail-image">
+    
+    <div class="detail-content">
+        <p>{{ item.description }}</p>
+        <p class="price">Pris: {{ item.price }}</p>
+        <p class="allergens"><b>Allergener:</b> {{ item.allergens }}</p>
+    </div>
+</div>
+{% endblock %}
